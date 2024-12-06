@@ -1,4 +1,5 @@
 import os
+import json
 from fuzzywuzzy import process
 from typing import Optional, Dict, Union
 
@@ -51,28 +52,32 @@ class TODO(BaseTool):
         op = self.ops_map[params.get('operation',"查看").strip()]
         item = params.get('item',"")
 
+        # 2. 执行操作
+        res = ""
         if op == "reset":
             self.list = []
             save_text_to_file(self.file,"")
-            return dict(type = "text",content = "重置待办事项成功！")
+            res = "重置待办事项成功！"
         elif op == "check":
             if len(self.list) == 0:
-                return dict(type = "text",content = "当前无待办事项！")
+                res = "当前无待办事项！"
             else:
-                return dict(type = "text",content = "\n".join(self.list))
+                res = "当前待办事项有：\n" + "\n".join(self.list)
         elif op == "insert":
             if item.strip() == "":
-                return dict(type = "text",content = "待办事项不能为空！")
+                res = "待办事项不能为空！"
             else:
                 self.list.append(item.strip())
                 save_text_to_file(self.file,"\n".join(self.list))
-                return dict(type = "text",content = "添加待办事项成功！")
+                res = "添加待办事项成功！当前待办事项有：\n" + "\n".join(self.list)
         elif op == "finish":
             if item.strip() == "":
-                return dict(type = "text",content = "待办事项不能为空！")
+                res = "待办事项不能为空！"
             else:
                 # 模糊匹配
                 match = process.extract(item.strip(), self.list, limit=1)
                 self.list.remove(match[0][0])
                 save_text_to_file(self.file,"\n".join(self.list))
-                return dict(type = "text",content = "完成待办事项成功！")
+                res = f"完成 {item.strip()}！当前待办事项有：\n" + "\n".join(self.list)
+    
+        return json.dumps({"text":res},ensure_ascii=False)

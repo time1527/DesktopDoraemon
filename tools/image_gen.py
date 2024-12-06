@@ -1,6 +1,7 @@
 # copy and modify from:
 # https://github.com/QwenLM/Qwen-Agent/blob/main/qwen_agent/tools/image_gen.py
 
+import json
 import urllib
 from typing import Union
 
@@ -26,7 +27,7 @@ class ImageGen(BaseTool):
         }
     ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> dict:
+    def call(self, params: Union[str, dict], **kwargs) -> str:
         """"
         call the image gen tool.
 
@@ -34,7 +35,7 @@ class ImageGen(BaseTool):
             params (Union[str, dict]): The input parameters.
 
         Returns:
-            dict: The output of the image gen tool.
+            str: The output of the image gen tool.
         """
         # 1. 检验参数是否符合要求
         params = self._verify_json_format_args(params)
@@ -49,4 +50,4 @@ class ImageGen(BaseTool):
         # 3. 保存图片
         image_path = get_save_path(type = "png")
         save_url_to_local_work_dir(image_url,image_path)
-        return dict(type = "image",content = image_path)
+        return json.dumps({"image":image_path},ensure_ascii=False)

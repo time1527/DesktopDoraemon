@@ -30,7 +30,7 @@ class TreasureBag(BaseTool):
             "时光机":"time_machine"
         }
 
-    def call(self, params: Union[str, dict], **kwargs) -> Union[list, dict]:
+    def call(self, params: Union[str, dict], **kwargs) -> str:
         """
         Call the treasure bag tool.
 
@@ -38,14 +38,14 @@ class TreasureBag(BaseTool):
             params (Union[str, dict]): The input parameters.
 
         Returns:
-            Union[list, dict]: The output of the treasure bag tool.
+            str: The output of the treasure bag tool.
         """
         # 1. 检验参数是否符合要求
         params = self._verify_json_format_args(params)
         tool = params.get('tool',"")
         tool = tool.strip()
         if tool not in self.tools_map:
-            return dict(type = 'text',content = f"tool {tool} is not in {self.tools_map}")
+            return f"{tool} 不在百宝袋中。"
         
         # 2. 读取工具信息
         tool_path = os.path.join(REPO_PATH,f"data/tools/content/{self.tools_map[tool]}.json")
@@ -53,6 +53,5 @@ class TreasureBag(BaseTool):
             data = json.load(file)
         use = data["use"]
         image_path = os.path.join(REPO_PATH,data["image_path"])
-        return [dict(type = 'text', content=str(use)),
-                dict(type = 'image', content=str(image_path))]
+        return json.dumps({"text":use,"image":image_path},ensure_ascii=False)
         

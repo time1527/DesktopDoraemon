@@ -2,6 +2,7 @@
 
 import os
 import re
+import json
 import asyncio
 import aiohttp
 from typing import Optional,Dict,Union
@@ -34,7 +35,7 @@ class GithubTrending(BaseTool):
         # https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml
         self.languages_list = read_text_from_file(os.path.join(REPO_PATH,"data/tools/content/languages.txt"))
 
-    def call(self, params: Union[str, dict], **kwargs) -> dict:
+    def call(self, params: Union[str, dict], **kwargs) -> str:
         """
         Call the GithubTrending tool.
 
@@ -42,7 +43,7 @@ class GithubTrending(BaseTool):
             params (Union[str, dict]): The parameters for the GithubTrending tool.
 
         Returns:
-            dict: The results of the GithubTrending tool.
+            str: The results of the GithubTrending tool.
         """
         # 1. 检验参数是否符合要求
         params = self._verify_json_format_args(params)
@@ -52,11 +53,11 @@ class GithubTrending(BaseTool):
         try:
             response = asyncio.run(self._get(language))
         except Exception as e:
-            return dict(type = 'text',content = str(e))
+            return json.dumps({"error":str(e)},ensure_ascii=False)
         
         # 3. 整理内容
         parsed_res = self._parse_results(response)
-        return dict(type = 'text', content=str(parsed_res))
+        return json.dumps({"text":str(parsed_res)},ensure_ascii=False)
 
     def _parse_results(self, html: str) -> str:
         """
@@ -106,7 +107,7 @@ class GithubTrending(BaseTool):
         for item in repositories:
             formatted_item = "\n".join([f"{key}: {value}" for key, value in item.items()])
             formatted_strings.append(formatted_item)
-        return "\n\n".join(formatted_strings)
+        return "\n".join(formatted_strings)
 
     async def _get(self,language: str) -> str:
         if len(language):

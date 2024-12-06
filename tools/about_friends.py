@@ -1,3 +1,4 @@
+import json
 from typing import Union
 
 from memory.base import BaseMemory
@@ -17,7 +18,7 @@ class AboutFriends(BaseTool):
         }
     ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> dict:
+    def call(self, params: Union[str, dict], **kwargs) -> str:
         """
         Call the tool with the given parameters.
 
@@ -25,11 +26,14 @@ class AboutFriends(BaseTool):
             params (Union[str, dict]): The parameters to use for the tool.
 
         Returns:
-            dict: The output of the tool.
+            str: The output of the tool.
         """
         params = self._verify_json_format_args(params)
         query = params.get('query')
 
         mem = kwargs.get("memory",BaseMemory(DEFAULT_MEMORY_CFG))
         results = mem.vector_store.as_retriever(search_kwargs={'k': 3}).invoke(query)
-        return dict(type = "text",content = "\n\n".join([result.page_content for result in results]))
+        return json.dumps(
+            {"text":"\n\n".join([result.page_content for result in results])},
+            ensure_ascii=False,
+            )

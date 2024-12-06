@@ -1,3 +1,4 @@
+import json
 from rembg import remove
 from typing import Union
 
@@ -19,7 +20,7 @@ class RemoveImageBackground(BaseTool):
         }
     ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> dict:
+    def call(self, params: Union[str, dict], **kwargs) -> str:
         """
         Call the RemoveImageBackground tool.
 
@@ -27,14 +28,14 @@ class RemoveImageBackground(BaseTool):
             params (Union[str, dict]): The parameters for the RemoveImageBackground tool.
 
         Returns:
-            dict: The results of the RemoveImageBackground tool.
+            str: The results of the RemoveImageBackground tool.
         """
         # 1. 检验参数是否符合要求
         params = self._verify_json_format_args(params)
         img_path = params.get('img_path',"")
 
         if img_path.strip() == "":
-            return dict(type = "text",content = "请输入图片路径。")
+            return "请输入图片路径。"
         
         # 2. 读取图片
         with open(img_path, 'rb') as img:
@@ -46,4 +47,4 @@ class RemoveImageBackground(BaseTool):
         # 4. 输出保存
         output_path = get_save_path(type = "png")
         save_image_to_file(output_image,output_path)
-        return dict(type = "image",content = output_path)
+        return json.dumps({"image":output_path},ensure_ascii=False)
