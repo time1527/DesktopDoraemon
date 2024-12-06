@@ -1,0 +1,2 @@
+gif来自：https://www.aigei.com/lib/gif/?sub=duo_la_a_meng_22#resContainer
+background来自：https://img-baofun.zhhainiao.com/pcwallpaper_ugc/static/f39fb8d9273cd2ceb442e49be9282d40.jpg?x-oss-process=image%2Fresize%2Cm_lfit%2Cw_1920%2Ch_1080
