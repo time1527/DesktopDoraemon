@@ -40,19 +40,19 @@
    pip install -r requirements.txt
    ```
 
-2. settings.py修改：`DEFAULT_CLIENT_TYPE`
+2. settings.py修改：DEFAULT_CLIENT_TYPE
 
-   * "chat"：`DEFAULT_CHAT_LLM_CFG`，一些本地小模型即可，部署成openai api形式
+   * "chat"：DEFAULT_CHAT_LLM_CFG，一些本地小模型即可，部署成openai api形式
 
-   * "react"：`DEFAULT_REACT_LLM_CFG`，建议使用闭源大模型的api
+   * "react"：DEFAULT_REACT_LLM_CFG，建议使用闭源大模型的api
 
-     * `DEFAULT_FUNCS`：其中不需要的工具直接注释掉
+     * DEFAULT_FUNCS：其中不需要的工具直接注释掉
 
-       * `MEMORY_TOOL_NAME`：需要向量模型（`DEFAULT_MEMORY_CFG`中的'model_name'）
+       * MEMORY_TOOL_NAME：需要向量模型（DEFAULT_MEMORY_CFG中的'embedding_cfg'）
 
-       * `GithubTrending`：大概率需要开代理
+       * "GithubTrending"：大概率需要开代理
 
-       * `RemoveImageBackground`：第一次运行会下载东西，可提前下载放置好
+       * "RemoveImageBackground"：第一次运行会下载东西，可提前下载放置好
 
          ```bash
           Downloading data from 'https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx' to file 'C:\Users\xx\.u2net\u2net.onnx'.
@@ -85,7 +85,7 @@
      DASHSCOPE_API_KEY = "your api key"
      ```
 
-   * 向量模型，可使用`download.py`下载
+   * 向量模型：HuggingFaceEmbeddings 或者 DashScopeEmbeddings
 
 4. `python main.py`
 

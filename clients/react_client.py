@@ -21,7 +21,7 @@ class ReActClient(BaseClient):
             function_list=DEFAULT_FUNCS,
             llm=DEFAULT_REACT_LLM_CFG,
             memory=DEFAULT_MEMORY_CFG)
-        self.agent.system_prompt = "你在扮演哆啦A梦，请按照其人物特征进行对话。"
+        self.agent.system_prompt = "你在扮演哆啦A梦，请按照其人物特征以第一人称进行对话。"
 
 
     def generate(self):

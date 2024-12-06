@@ -17,7 +17,7 @@ class ChatClient(BaseClient):
 
     def init_model(self,agent: Optional[ChatAgent] = None,):
         self.agent = agent or ChatAgent(llm=DEFAULT_CHAT_LLM_CFG)
-        self.agent.system_prompt = "你在扮演哆啦A梦，请按照其人物特征进行对话。"
+        self.agent.system_prompt = "你在扮演哆啦A梦，请按照其人物特征以第一人称进行对话。"
 
     def generate(self):
         *_,output = self.agent.run(self.history)

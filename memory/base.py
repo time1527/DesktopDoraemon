@@ -5,7 +5,7 @@ from typing import Union,Optional, Dict
 from langchain_core.documents import Document
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
-
+from langchain_community.embeddings import DashScopeEmbeddings
 
 from log import logger
 from settings import WORK_DIR
@@ -26,8 +26,11 @@ class BaseMemory(ABC):
         self.files = list(map(lambda x:os.path.abspath(str(x)),self.files))
 
         # embedding
-        self.embedding_cfg = self.cfg.get('embedding_cfg')
-        self.embedding_cfg["model_name"] = os.path.abspath(self.embedding_cfg["model_name"])
+        self.embedding_cfg = self.cfg.get('embedding_cfg',{})
+        if self.embedding_cfg:
+            self.embedding_cfg["model_name"] = os.path.abspath(self.embedding_cfg["model_name"])
+        self.embedding = HuggingFaceEmbeddings(**self.embedding_cfg) \
+          if self.embedding_cfg  else DashScopeEmbeddings()
 
         # vector_store
         self.vector_store_path = self.cfg.get('vector_store_path')
@@ -91,7 +94,7 @@ class BaseMemory(ABC):
           os.path.isdir(self.vector_store_path):
             self.vector_store = FAISS.load_local(
                 self.vector_store_path,
-                HuggingFaceEmbeddings(**self.embedding_cfg),
+                self.embedding,
                 allow_dangerous_deserialization=True
             )
             return
@@ -99,7 +102,7 @@ class BaseMemory(ABC):
             docs = self._files_to_docs()
             self.vector_store = FAISS.from_documents(
                 docs,
-                HuggingFaceEmbeddings(**self.embedding_cfg)
+                self.embedding,
             )
             path = self.vector_store_path if self.vector_store_path else WORK_DIR / 'vector_store'
             shutil.rmtree(path,ignore_errors=True)

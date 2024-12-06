@@ -26,18 +26,22 @@ DEFAULT_QWEN_MAX_CFG: dict = { # dashscope
 # memory
 DEFAULT_MEMORY_CFG: dict = {
     'files': REPO_PATH / 'data' / 'tools' / 'content' / 'characters.md',
-    'embedding_cfg': 
-    {
-        # write your own model path here
-        'model_name': DEFAULT_MODEL_STORAGE_PATH / "jinaai/jina-embeddings-v3", 
-        'model_kwargs': {
-            'device': 'cpu',
-            'trust_remote_code': True,
-        },
-        'encode_kwargs': {
-          'normalize_embeddings': True
-        }
-    },
+    # write your own model path here or use dashscopeembeddings
+
+    # # use local model path
+    # 'embedding_cfg': 
+    # {
+    #     'model_name': DEFAULT_MODEL_STORAGE_PATH / "jinaai/jina-embeddings-v3", 
+    #     'model_kwargs': {
+    #         'device': 'cpu',
+    #         'trust_remote_code': True,
+    #     },
+    #     'encode_kwargs': {
+    #       'normalize_embeddings': True
+    #     }
+    # },
+    # use dashscopeembeddings
+    'embedding_cfg':{},
     'vector_store_path': WORK_DIR / 'vector_store',
 }
 MEMORY_TOOL_NAME = 'AboutFriends'
