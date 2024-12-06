@@ -201,7 +201,8 @@ def format_as_multimodal_message(
             else:
                 has_zh = (lang == 'zh')
             upload = []
-            for f in [get_basename_from_url(f) for f in files]:
+            # for f in [get_basename_from_url(f) for f in files]:
+            for f in files:
                 if is_image(f):
                     if has_zh:
                         upload.append(f'![图片]({f})')
@@ -434,6 +435,14 @@ def extract_final_answer(text: str) -> str:
         return text
 
 
+def extract_observation(text: str) -> str:
+    pattern = re.compile(r"\nObservation:(.*?)\nThought", re.DOTALL)
+    match = pattern.search(text)
+    if match:
+        return match.group(1).strip()
+    else:
+        return ""
+    
 def save_url_to_local_work_dir(url: str,save_filename: str = '') -> str:
     if not save_filename:
         save_filename = get_basename_from_url(url)

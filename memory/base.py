@@ -1,5 +1,7 @@
 import os
+import sys
 from abc import ABC
+from dotenv import load_dotenv
 import shutil
 from typing import Union,Optional, Dict
 from langchain_core.documents import Document
@@ -10,7 +12,9 @@ from langchain_community.embeddings import DashScopeEmbeddings
 from log import logger
 from settings import WORK_DIR
 from utils.utils import get_file_type,read_text_from_file
-    
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+load_dotenv()
 
 class BaseMemory(ABC):
     """
@@ -30,7 +34,7 @@ class BaseMemory(ABC):
         if self.embedding_cfg:
             self.embedding_cfg["model_name"] = os.path.abspath(self.embedding_cfg["model_name"])
         self.embedding = HuggingFaceEmbeddings(**self.embedding_cfg) \
-          if self.embedding_cfg  else DashScopeEmbeddings()
+          if self.embedding_cfg  else DashScopeEmbeddings(dashscope_api_key = os.getenv('DASHSCOPE_API_KEY'))
 
         # vector_store
         self.vector_store_path = self.cfg.get('vector_store_path')

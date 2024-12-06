@@ -238,7 +238,7 @@ class DesktopPet(QWidget):
 
 if __name__ == '__main__':
     # 清理WORK_DIR
-    shutil.rmtree(WORK_DIR,ignore_errors=True)
+    # shutil.rmtree(WORK_DIR,ignore_errors=True)
     # 创建了一个QApplication对象，对象名为app，带两个参数argc,argv
     # 所有的PyQt5应用必须创建一个应用（Application）对象。sys.argv参数是一个来自命令行的参数列表。
     app = QApplication(sys.argv)

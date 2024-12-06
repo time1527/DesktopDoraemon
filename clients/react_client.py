@@ -5,7 +5,12 @@ from PyQt5.QtWidgets import QApplication
 from agents import ReAct
 from clients.base import BaseClient
 from utils.schema import ContentItem
-from utils.utils import is_image,is_file,extract_markdown_urls,extract_final_answer
+from utils.utils import (
+    is_image,is_file,
+    json_loads,
+    extract_final_answer,
+    extract_observation
+)
 from log import logger
 from settings import DEFAULT_REACT_LLM_CFG,DEFAULT_FUNCS,DEFAULT_MEMORY_CFG
 
@@ -29,22 +34,31 @@ class ReActClient(BaseClient):
         output = output[-1]
 
         logger.info(f"agent output: {output}")
-        # 提取final answer和url
+        
+        # 提取observation 和 final answer
+        ob = extract_observation(output.content) # str -> str
         fa = extract_final_answer(output.content) # str -> str
-        urls = extract_markdown_urls(fa) # str -> list[str]
-        if len(urls) == 0:
+        
+        # 没有调用tool
+        if not ob:
             output.content = [ContentItem(text = fa)]
             return output
         
-        # 将url添加到content中
+        # 从observation提取image和file路径
+        paths = json_loads(ob) # str -> dict or str(error)
+        if not paths or isinstance(paths,str) or all(x == "text" for x in paths.keys()):
+            output.content = [ContentItem(text = fa)]
+            return output
+        
+        # 将image和file路径添加到content中
         content = [ContentItem(text = fa)]
-        for url in urls:
-            if is_image(url):
-                content.append(ContentItem(image = url))
-            elif is_file(url):
-                content.append(ContentItem(file = url))
+        for type in paths.keys():
+            type = type.strip()
+            if type == "image":
+                content.append(ContentItem(image = paths[type]))
+            elif type == "file":
+                content.append(ContentItem(file = paths[type]))
         output.content = content
-        logger.info(f"agent output: {output}")
         return output
 
 
