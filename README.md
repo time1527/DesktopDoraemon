@@ -8,6 +8,8 @@
 
 使用Qwen-Agent（源码拆解）和PyQt5实现的桌面哆啦A梦
 
+[视频](./data/video.webm)
+
 ## structure
 
 ![](./data/structure.svg)
@@ -87,7 +89,13 @@
 
    * 向量模型：HuggingFaceEmbeddings 或者 DashScopeEmbeddings
 
-4. `python main.py`
+4. ```
+   python main.py
+   ```
+
+## to be solved
+
+1. 调用GithubTrending，最终答案在"\n\n"后不再显示
 
 ## references
 
