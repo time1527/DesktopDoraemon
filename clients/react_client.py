@@ -6,63 +6,68 @@ from agents import ReAct
 from clients.base import BaseClient
 from utils.schema import ContentItem
 from utils.utils import (
-    is_image,is_file,
+    is_image,
+    is_file,
     json_loads,
     extract_final_answer,
-    extract_observation
+    extract_observation,
 )
 from log import logger
-from settings import DEFAULT_REACT_LLM_CFG,DEFAULT_FUNCS,DEFAULT_MEMORY_CFG
+from settings import DEFAULT_REACT_LLM_CFG, DEFAULT_FUNCS, DEFAULT_MEMORY_CFG
 
 
 class ReActClient(BaseClient):
-    def __init__(self, 
-                 parent=None, 
-                 **kwargs):
+    def __init__(self, parent=None, **kwargs):
         super().__init__(parent)
 
-    def init_model(self,agent: Optional[ReAct] = None):
+    def init_model(self, agent: Optional[ReAct] = None):
         self.agent = agent or ReAct(
             function_list=DEFAULT_FUNCS,
             llm=DEFAULT_REACT_LLM_CFG,
-            memory=DEFAULT_MEMORY_CFG)
-        self.agent.system_prompt = "你在扮演哆啦A梦，请按照其人物特征以第一人称进行对话。"
-
+            memory=DEFAULT_MEMORY_CFG,
+        )
+        self.agent.system_prompt = (
+            "你在扮演哆啦A梦，请按照其人物特征以第一人称进行对话。"
+        )
 
     def generate(self):
-        *_,output = self.agent.run(self.history)
+        *_, output = self.agent.run(self.history)
         output = output[-1]
 
         logger.info(f"agent output: {output}")
-        
+
         # 提取observation 和 final answer
-        ob = extract_observation(output.content) # str -> str
-        fa = extract_final_answer(output.content) # str -> str
-        
+        ob = extract_observation(output.content)  # str -> str
+        fa = extract_final_answer(output.content)  # str -> str
+
         # 没有调用tool
         if not ob:
-            output.content = [ContentItem(text = fa)]
+            output.content = [ContentItem(text=fa)]
             return output
-        
+
         # 从observation提取image和file路径
-        paths = json_loads(ob) # str -> dict or str(error)
-        if not paths or isinstance(paths,str) or all(x == "text" for x in paths.keys()):
-            output.content = [ContentItem(text = fa)]
+        paths = json_loads(ob)  # str -> dict or str(error)
+        if (
+            not paths
+            or isinstance(paths, str)
+            or all(x == "text" for x in paths.keys())
+        ):
+            output.content = [ContentItem(text=fa)]
             return output
-        
+
         # 将image和file路径添加到content中
-        content = [ContentItem(text = fa)]
+        content = [ContentItem(text=fa)]
         for type in paths.keys():
             type = type.strip()
             if type == "image":
-                content.append(ContentItem(image = paths[type]))
+                content.append(ContentItem(image=paths[type]))
             elif type == "file":
-                content.append(ContentItem(file = paths[type]))
+                content.append(ContentItem(file=paths[type]))
         output.content = content
         return output
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     client = ReActClient()

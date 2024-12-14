@@ -34,48 +34,50 @@ def get_chat_model(cfg: Union[dict, str]) -> BaseChatModel:
         LLM object.
     """
     if isinstance(cfg, str):
-        cfg = {'model': cfg}
+        cfg = {"model": cfg}
 
-    if 'model_type' in cfg:
-        model_type = cfg['model_type']
+    if "model_type" in cfg:
+        model_type = cfg["model_type"]
         if model_type in LLM_REGISTRY:
-            if model_type in ('oai', 'qwenvl_oai'):
-                if cfg.get('model_server', '').strip() == 'dashscope':
+            if model_type in ("oai", "qwenvl_oai"):
+                if cfg.get("model_server", "").strip() == "dashscope":
                     cfg = copy.deepcopy(cfg)
-                    cfg['model_server'] = 'https://dashscope.aliyuncs.com/compatible-mode/v1'
+                    cfg["model_server"] = (
+                        "https://dashscope.aliyuncs.com/compatible-mode/v1"
+                    )
             return LLM_REGISTRY[model_type](cfg)
         else:
-            raise ValueError(f'Please set model_type from {str(LLM_REGISTRY.keys())}')
+            raise ValueError(f"Please set model_type from {str(LLM_REGISTRY.keys())}")
 
     # Deduce model_type from model and model_server if model_type is not provided:
 
-    if 'azure_endpoint' in cfg:
-        model_type = 'azure'
+    if "azure_endpoint" in cfg:
+        model_type = "azure"
         return LLM_REGISTRY[model_type](cfg)
 
-    if 'model_server' in cfg:
-        if cfg['model_server'].strip().startswith('http'):
-            model_type = 'oai'
+    if "model_server" in cfg:
+        if cfg["model_server"].strip().startswith("http"):
+            model_type = "oai"
             return LLM_REGISTRY[model_type](cfg)
 
-    model = cfg.get('model', '')
+    model = cfg.get("model", "")
 
-    if 'qwen-vl' in model:
-        model_type = 'qwenvl_dashscope'
+    if "qwen-vl" in model:
+        model_type = "qwenvl_dashscope"
         return LLM_REGISTRY[model_type](cfg)
 
-    if 'qwen' in model:
-        model_type = 'qwen_dashscope'
+    if "qwen" in model:
+        model_type = "qwen_dashscope"
         return LLM_REGISTRY[model_type](cfg)
 
-    raise ValueError(f'Invalid model cfg: {cfg}')
+    raise ValueError(f"Invalid model cfg: {cfg}")
 
 
 __all__ = [
-    'BaseChatModel',
-    'BaseFnCallModel',
-    'TextChatAtOAI',
-    'ModelServiceError',
-    'QwenChatAtDS',
-    'get_chat_model',
+    "BaseChatModel",
+    "BaseFnCallModel",
+    "TextChatAtOAI",
+    "ModelServiceError",
+    "QwenChatAtDS",
+    "get_chat_model",
 ]

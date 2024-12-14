@@ -6,25 +6,27 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import QSize, pyqtSignal, Qt, QThread
 from PyQt5.QtGui import QPainter, QFont, QColor, QPixmap, QPolygon, QFontMetrics
 from PyQt5.QtWidgets import (
-    QWidget, 
-    QLabel, 
-    QHBoxLayout, 
-    QSizePolicy, 
-    QVBoxLayout, 
+    QWidget,
+    QLabel,
+    QHBoxLayout,
+    QSizePolicy,
+    QVBoxLayout,
     QSpacerItem,
-    QScrollArea, 
-    QScrollBar)
+    QScrollArea,
+    QScrollBar,
+)
 
-from utils.schema import MessageRole,MessageType
+from utils.schema import MessageRole, MessageType
+
 # TODO：file
 
 
 class TextMessage(QLabel):
     heightSingal = pyqtSignal(int)
 
-    def __init__(self, text, role = MessageRole.ASSISTANT, parent = None):
+    def __init__(self, text, role=MessageRole.ASSISTANT, parent=None):
         super(TextMessage, self).__init__(text, parent)
-        font = QFont('微软雅黑', 12)
+        font = QFont("微软雅黑", 12)
         self.setFont(font)
         self.setWordWrap(True)
         self.setMaximumWidth(800)
@@ -35,30 +37,30 @@ class TextMessage(QLabel):
         if role == MessageRole.USER:
             self.setAlignment(Qt.AlignCenter | Qt.AlignRight)
             self.setStyleSheet(
-                '''
+                """
                 background-color:#b2e281;
                 border-radius:10px;
                 padding:10px;
-                '''
+                """
             )
         else:
             self.setStyleSheet(
-                '''
+                """
                 background-color:white;
                 border-radius:10px;
                 padding:10px;
-                '''
+                """
             )
         font_metrics = QFontMetrics(font)
         rect = font_metrics.boundingRect(text)
-        self.setMaximumWidth(rect.width()+30)
+        self.setMaximumWidth(rect.width() + 30)
 
     def paintEvent(self, a0: QtGui.QPaintEvent) -> None:
         super(TextMessage, self).paintEvent(a0)
 
 
 class Triangle(QLabel):
-    def __init__(self, type, role = MessageRole.ASSISTANT, parent=None):
+    def __init__(self, type, role=MessageRole.ASSISTANT, parent=None):
         super().__init__(parent)
         self.type = type
         self.role = role
@@ -70,12 +72,12 @@ class Triangle(QLabel):
             painter = QPainter(self)
             triangle = QPolygon()
             if self.role == MessageRole.USER:
-                painter.setPen(QColor('#b2e281'))
-                painter.setBrush(QColor('#b2e281'))
+                painter.setPen(QColor("#b2e281"))
+                painter.setBrush(QColor("#b2e281"))
                 triangle.setPoints(0, 20, 0, 34, 6, 27)
             else:
-                painter.setPen(QColor('white'))
-                painter.setBrush(QColor('white'))
+                painter.setPen(QColor("white"))
+                painter.setBrush(QColor("white"))
                 triangle.setPoints(0, 27, 6, 20, 6, 34)
             painter.drawPolygon(triangle)
 
@@ -84,7 +86,7 @@ class Notice(QLabel):
     def __init__(self, text, type_="UNK", parent=None):
         super().__init__(text, parent)
         self.type_ = type_
-        self.setFont(QFont('微软雅黑', 12))
+        self.setFont(QFont("微软雅黑", 12))
         self.setWordWrap(True)
         self.setTextInteractionFlags(Qt.TextSelectableByMouse)
         self.setAlignment(Qt.AlignCenter)
@@ -136,7 +138,7 @@ class FileMessage(QLabel):
         self.file_path = file_path
         self.role = role
         # 设置字体
-        font = QFont('微软雅黑', 12)
+        font = QFont("微软雅黑", 12)
         self.setFont(font)
         self.setWordWrap(True)
         self.setMaximumWidth(800)
@@ -147,31 +149,31 @@ class FileMessage(QLabel):
         if role == MessageRole.USER:
             self.setAlignment(Qt.AlignCenter | Qt.AlignRight)
             self.setStyleSheet(
-                '''
+                """
                 background-color:#b2e281;
                 border-radius:10px;
                 padding:10px;
-                '''
+                """
             )
         else:
             self.setStyleSheet(
-                '''
+                """
                 background-color:white;
                 border-radius:10px;
                 padding:10px;
-                '''
+                """
             )
         # 显示文件名称
-        file_name = file_path.split('/')[-1]
+        file_name = file_path.split("/")[-1]
         self.setText(file_name)
         # 可以添加文件图标或其他标识元素，这里使用一个简单的标签作为示例
         self.file_icon = QLabel(self)
         self.file_icon.setText("📄")
         self.file_icon.setGeometry(10, 10, 20, 20)
         self.file_icon.setStyleSheet(
-            '''
+            """
             font-size: 20px;
-            '''
+            """
         )
         # 可以添加点击事件，例如打开文件
         self.setMouseTracking(True)
@@ -183,16 +185,18 @@ class FileMessage(QLabel):
 
 
 class BubbleMessage(QWidget):
-    def __init__(self, str_content, avatar, type, role = MessageRole.ASSISTANT, parent=None):
+    def __init__(
+        self, str_content, avatar, type, role=MessageRole.ASSISTANT, parent=None
+    ):
         super().__init__(parent)
         self.content = str_content
         self.role = role
         self.type = type
-        
+
         self.setStyleSheet(
-            '''
+            """
             border:none;
-            '''
+            """
         )
         layout = QHBoxLayout()
         layout.setSpacing(0)
@@ -210,7 +214,9 @@ class BubbleMessage(QWidget):
         else:
             raise ValueError("未知的消息类型")
 
-        self.spacerItem = QSpacerItem(45 + 6, 45, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.spacerItem = QSpacerItem(
+            45 + 6, 45, QSizePolicy.Expanding, QSizePolicy.Minimum
+        )
         if role == MessageRole.USER:
             layout.addItem(self.spacerItem)
             layout.addWidget(self.message, 1)
@@ -236,9 +242,9 @@ class ScrollArea(QScrollArea):
         self.setWidgetResizable(True)
         self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.setStyleSheet(
-            '''
+            """
             border:none;
-            '''
+            """
         )
 
 
@@ -246,7 +252,7 @@ class ScrollBar(QScrollBar):
     def __init__(self):
         super().__init__()
         self.setStyleSheet(
-            '''
+            """
           QScrollBar:vertical {
               border-width: 0px;
               border: none;
@@ -285,7 +291,7 @@ class ScrollBar(QScrollBar):
           QScrollBar::add-page:vertical {
               background: rgba(64, 65, 79, 0);
           }
-            '''
+            """
         )
 
 

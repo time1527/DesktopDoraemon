@@ -10,23 +10,26 @@ from settings import DEFAULT_CHAT_LLM_CFG
 
 
 class ChatClient(BaseClient):
-    def __init__(self, 
-                 parent = None, 
-                 **kwargs):
+    def __init__(self, parent=None, **kwargs):
         super().__init__(parent)
 
-    def init_model(self,agent: Optional[ChatAgent] = None,):
+    def init_model(
+        self,
+        agent: Optional[ChatAgent] = None,
+    ):
         self.agent = agent or ChatAgent(llm=DEFAULT_CHAT_LLM_CFG)
-        self.agent.system_prompt = "你在扮演哆啦A梦，请按照其人物特征以第一人称进行对话。"
+        self.agent.system_prompt = (
+            "你在扮演哆啦A梦，请按照其人物特征以第一人称进行对话。"
+        )
 
     def generate(self):
-        *_,output = self.agent.run(self.history)
+        *_, output = self.agent.run(self.history)
         output = extract_final_answer(output[-1])
         logger.info(f"agent output: {output}")
         return output
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     client = ChatClient()
