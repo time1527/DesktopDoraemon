@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from utils.schema import Message, ContentItem, MessageRole
 from llms import get_chat_model
-from settings import REPO_PATH, DEFAULT_OAI_CFG, DEFAULT_QWEN_MAX_CFG
+from settings import REPO_PATH, DEFAULT_OAI_CFG, DEFAULT_DASHSCOPE_CFG
 
 # 命令行:
 # ollama serve
@@ -48,4 +48,4 @@ def test_llm(llm_cfg, fn=True):
 
 
 if __name__ == "__main__":
-    test_llm(DEFAULT_QWEN_MAX_CFG)
+    test_llm(DEFAULT_DASHSCOPE_CFG)

@@ -8,12 +8,12 @@ from settings import REPO_PATH
 
 @register_tool("TreasureBag")
 class TreasureBag(BaseTool):
-    description = "哆啦A梦的百宝袋，里面有任意门、竹蜻蜓、放大灯、记忆面包、缩小灯和时光机。输入需要取出的工具，返回工具的使用方法和图片。"
+    description = "哆啦A梦的百宝袋，里面有任意门、竹蜻蜓、放大灯、记忆面包、缩小灯和时光机。输入需要取出的道具，返回道具的使用方法和图片。"
     name = "TreasureBag"
     parameters: list = [
         {
             "name": "tool",
-            "description": "想要取出的工具，选项有[任意门, 竹蜻蜓, 放大灯, 记忆面包, 缩小灯, 时光机]。其中，任意门可以到达想去的任意地方，竹蜻蜓可以在天空中飞行，放大灯可以放大物体，记忆面包可以帮助记忆，缩小灯可以缩小物体，时光机可以穿越时间和空间。",
+            "description": "想要取出的道具，选项有[任意门, 竹蜻蜓, 放大灯, 记忆面包, 缩小灯, 时光机]。其中，任意门可以到达想去的任意地方，竹蜻蜓可以在天空中飞行，放大灯可以放大物体，记忆面包可以帮助记忆，缩小灯可以缩小物体，时光机可以穿越时间和空间。",
             "required": True,
             "type": "string",
         }

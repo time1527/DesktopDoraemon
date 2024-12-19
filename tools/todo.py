@@ -8,10 +8,10 @@ from utils.utils import read_text_from_file, save_text_to_file
 from settings import REPO_PATH
 
 
-@register_tool("TODO")
-class TODO(BaseTool):
-    description = "待办事项，输入操作及相应的待办事项，返回所有待办事项。"
-    name = "TODO"
+@register_tool("ToDo")
+class ToDo(BaseTool):
+    description = "待办事项，输入操作及相应的待办事项，返回待办事项情况。"
+    name = "ToDo"
     parameters: list = [
         {
             "name": "operation",
@@ -21,7 +21,7 @@ class TODO(BaseTool):
         },
         {
             "name": "item",
-            "description": "事项，添加时输入事项，完成时输入事项，查看时无需输入，重置时无需输入。",
+            "description": "事项，添加时需要输入事项，完成时需要输入事项，查看时可以输入事项，重置时无需输入事项。",
             "required": False,
             "type": "string",
         },
@@ -36,17 +36,20 @@ class TODO(BaseTool):
             "重置": "reset",
         }
         self.file = os.path.join(REPO_PATH, "data/tools/content/todo_list.txt")
+        # 如果不存在初始的todo文件，则创建一个空文件
+        if not os.path.exists(self.file):
+            save_text_to_file(self.file, "")
         self.list = read_text_from_file(self.file).split("\n")
 
     def call(self, params: Union[str, dict], **kwargs) -> dict:
         """
-        Call the TODO tool.
+        Call the ToDo tool.
 
         Args:
             params (Union[str, dict]): The input parameters.
 
         Returns:
-                dict: The output of the TODO tool.
+            dict: The output of the ToDo tool.
         """
         # 1. 检验参数是否符合要求
         params = self._verify_json_format_args(params)
@@ -58,27 +61,64 @@ class TODO(BaseTool):
         if op == "reset":
             self.list = []
             save_text_to_file(self.file, "")
-            res = "重置待办事项成功！"
+            res = "重置待办事项成功。"
         elif op == "check":
-            if len(self.list) == 0:
-                res = "当前无待办事项！"
+            if not self.list:
+                res = "当前无待办事项。"
+            elif item:
+                match = self.match_list(item)
+                if match:
+                    res = f"{item}在待办事项中。"
+                else:
+                    res = f"{item}不在待办事项中。当前待办事项有：\n" + "\n".join(
+                        self.list
+                    )
             else:
                 res = "当前待办事项有：\n" + "\n".join(self.list)
         elif op == "insert":
             if item.strip() == "":
-                res = "待办事项不能为空！"
+                res = "添加的待办事项不能为空。"
+            elif self.match_list(item):
+                res = f"{item}已经在待办事项中了。"
             else:
                 self.list.append(item.strip())
                 save_text_to_file(self.file, "\n".join(self.list))
-                res = "添加待办事项成功！当前待办事项有：\n" + "\n".join(self.list)
+                res = "添加待办事项成功，当前待办事项有：\n" + "\n".join(self.list)
         elif op == "finish":
             if item.strip() == "":
-                res = "待办事项不能为空！"
+                res = "待办事项不能为空。"
             else:
                 # 模糊匹配
-                match = process.extract(item.strip(), self.list, limit=1)
-                self.list.remove(match[0][0])
-                save_text_to_file(self.file, "\n".join(self.list))
-                res = f"完成 {item.strip()}！当前待办事项有：\n" + "\n".join(self.list)
+                match = self.match_list(item)
+                if match:
+                    self.list.remove(match)
+                    save_text_to_file(self.file, "\n".join(self.list))
+                    res = f"完成 {item.strip()}，当前待办事项有：\n" + "\n".join(
+                        self.list
+                    )
+                else:
+                    res = (
+                        "当前待办事项有：\n"
+                        + "\n".join(self.list)
+                        + "请再次确认完成的事项是否正确。"
+                    )
 
         return json.dumps({"text": res}, ensure_ascii=False)
+
+    def match_list(self, item: str) -> str:
+        """
+        Match the item with the list.
+
+        Args:
+            item (str): The item to be matched.
+
+        Returns:
+            str: The matched item.
+        """
+        if not self.list:
+            return ""
+        match, score = process.extractOne(item.strip(), self.list)
+        if score > 80:  # 超参数
+            return match
+        else:
+            return ""

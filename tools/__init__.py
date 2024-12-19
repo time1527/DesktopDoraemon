@@ -3,7 +3,7 @@ from .about_friends import AboutFriends
 from .github_trend import GithubTrending
 from .image_gen import ImageGen
 from .rm_image_background import RemoveImageBackground
-from .todo import TODO
+from .todo import ToDo
 from .treasure_bag import TreasureBag
 
 
@@ -12,7 +12,7 @@ __all__ = [
     "GithubTrending",
     "ImageGen",
     "RemoveImageBackground",
-    "TODO",
+    "ToDo",
     "TreasureBag",
     "BaseTool",
     "register_tool",

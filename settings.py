@@ -21,7 +21,7 @@ DEFAULT_OAI_CFG: dict = {  # openai format api config
         "fncall_prompt_type": "qwen",
     },
 }
-DEFAULT_QWEN_MAX_CFG: dict = {"model": "qwen-max"}  # dashscope
+DEFAULT_DASHSCOPE_CFG: dict = {"model": "qwen-turbo"}  # dashscope
 
 # memory
 DEFAULT_MEMORY_CFG: dict = {
@@ -48,15 +48,15 @@ MEMORY_TOOL_NAME = "AboutFriends"
 # agent
 MAX_LLM_CALL_PER_RUN: int = 8
 DEFAULT_FUNCS: List[str] = [  # functions
-    "GithubTrending",
-    # 'ImageGen',
-    # 'RemoveImageBackground',
-    # 'TreasureBag',
-    # 'TODO',
-    # MEMORY_TOOL_NAME
+    # "GithubTrending",
+    # "ImageGen",
+    # "RemoveImageBackground",
+    # "TreasureBag",
+    # "ToDo",
+    MEMORY_TOOL_NAME
 ]
 
 # client
 DEFAULT_CLIENT_TYPE: str = "react"  # react or chat
 DEFAULT_CHAT_LLM_CFG: dict = DEFAULT_OAI_CFG  # llm cfg used in chat client
-DEFAULT_REACT_LLM_CFG: dict = DEFAULT_QWEN_MAX_CFG  # llm cfg used in react client
+DEFAULT_REACT_LLM_CFG: dict = DEFAULT_DASHSCOPE_CFG  # llm cfg used in react client

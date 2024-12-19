@@ -9,7 +9,7 @@ from utils.schema import Message, ContentItem, MessageRole
 from settings import (
     REPO_PATH,
     DEFAULT_FUNCS,
-    DEFAULT_QWEN_MAX_CFG,
+    DEFAULT_DASHSCOPE_CFG,
     WORK_DIR,
     DEFAULT_MEMORY_CFG,
 )
@@ -17,16 +17,29 @@ from settings import (
 
 def test_react():
     agent = ReAct(
-        llm=DEFAULT_QWEN_MAX_CFG, function_list=DEFAULT_FUNCS, memory=DEFAULT_MEMORY_CFG
+        llm=DEFAULT_DASHSCOPE_CFG,
+        function_list=DEFAULT_FUNCS,
+        memory=DEFAULT_MEMORY_CFG,
     )
 
     messages = [
         Message(
             role=MessageRole.USER,
             content=[
-                ContentItem(text="今天github有什么热门的pytorch项目？"),
-                # ContentItem(image = os.path.join(REPO_PATH,
-                #                                  "data/tools/image/rm-img-bg-test.jpg"))
+                # # aboutfriends
+                # ContentItem(text="哆啦美最近在做什么？"),
+                # # githubtrending
+                # ContentItem(text="今天github有什么热门的pytorch项目？"),
+                # # imagegen
+                # ContentItem(text="请帮我生成一个画面，飞机在海里飞行，要求宽是800。")
+                # # removeimagebackground
+                # ContentItem(
+                #     text="（上传了![图片](G:/DesktopDoraemon/work_dir/1734165033-366666666.png)）\n\n感觉把这张的背景去掉会更好看一些。"
+                # )
+                # # todo
+                # ContentItem(text="帮我看看今天还有什么任务？")
+                # # treasurebag
+                # ContentItem(text="哆啦A梦的百宝袋里面有什么东西？")
             ],
         )
     ]

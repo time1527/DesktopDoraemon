@@ -122,7 +122,6 @@ class BaseMemory(ABC):
                 self.embedding,
                 allow_dangerous_deserialization=True,
             )
-            return
         elif self.files:
             docs = self._files_to_docs()
             self.vector_store = FAISS.from_documents(

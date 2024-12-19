@@ -151,6 +151,7 @@ class BaseTool(ABC):
                 raise ValueError("Parameters must be formatted as a valid JSON!")
         else:
             params_json: dict = params
+
         if isinstance(self.parameters, list):
             for param in self.parameters:
                 if "required" in param and param["required"]:
