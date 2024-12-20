@@ -44,10 +44,14 @@ class RemoveImageBackground(BaseTool):
         img_path = params.get("img_path", "")
 
         if img_path.strip() == "":
-            return "请输入图片路径。"
+            return json.dumps(
+                {"error": f"请输入图片路径或链接。"},
+                ensure_ascii=False,
+            )
 
         # 如果图片是网络路径，需要先下载到本地
         if is_http_url(img_path):
+            url = img_path
             try:
                 img_url = img_path
                 img_extension = os.path.splitext(img_url)[1].lower()
@@ -61,14 +65,14 @@ class RemoveImageBackground(BaseTool):
                 save_url_to_local_work_dir(img_url, img_path)
             except Exception as e:
                 return json.dumps(
-                    {"error": f"图片链接{img_path}不存在或无法访问。"},
+                    {"error": f"图片链接 {url} 不存在或无法访问。"},
                     ensure_ascii=False,
                 )
 
         # 如果图片是本地路径，需要判断是否存在
         if not os.path.exists(img_path):
             return json.dumps(
-                {"error": f"图片路径{img_path}不存在。"},
+                {"error": f"图片路径 {img_path} 不存在。"},
                 ensure_ascii=False,
             )
         try:

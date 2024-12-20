@@ -58,6 +58,7 @@ class ToDo(BaseTool):
 
         # 2. 执行操作
         res = ""
+        error = False
         if op == "reset":
             self.list = []
             save_text_to_file(self.file, "")
@@ -78,8 +79,9 @@ class ToDo(BaseTool):
         elif op == "insert":
             if item.strip() == "":
                 res = "添加的待办事项不能为空。"
+                error = True
             elif self.match_list(item):
-                res = f"{item}已经在待办事项中了。"
+                res = f"{item}已经在待办事项中。"
             else:
                 self.list.append(item.strip())
                 save_text_to_file(self.file, "\n".join(self.list))
@@ -87,6 +89,7 @@ class ToDo(BaseTool):
         elif op == "finish":
             if item.strip() == "":
                 res = "待办事项不能为空。"
+                error = True
             else:
                 # 模糊匹配
                 match = self.match_list(item)
@@ -100,9 +103,12 @@ class ToDo(BaseTool):
                     res = (
                         "当前待办事项有：\n"
                         + "\n".join(self.list)
-                        + "请再次确认完成的事项是否正确。"
+                        + "。请再次确认完成的事项是否正确。"
                     )
-
+                    error = True
+        
+        if error:
+            return json.dumps({"error": res}, ensure_ascii=False)
         return json.dumps({"text": res}, ensure_ascii=False)
 
     def match_list(self, item: str) -> str:
