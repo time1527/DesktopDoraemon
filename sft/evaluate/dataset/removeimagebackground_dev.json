@@ -1,0 +1,162 @@
+[
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "（上传了![图片](/home/pika/Project/DesktopDoraemon/work_dir/1734676836-33028282756288486524242652617071187431.png)）\n\n去一下这张图片的背景。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"/home/pika/Project/DesktopDoraemon/work_dir/1734676836-33028282756288486524242652617071187431.png\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "（上传了![图片](/home/pika/Project/DesktopDoraemon/work_dir/1689753095495612.png)）\n\n帮我把这张的背景去除。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"/home/pika/Project/DesktopDoraemon/work_dir/1689753095495612.png\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "（上传了![图片](/home/pika/Project/DesktopDoraemon/work_dir/aa1c6f8e3d83243cd5e0bb51340c3e72.jpg)）\n\n请问可以帮我去除图片背景吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"/home/pika/Project/DesktopDoraemon/work_dir/aa1c6f8e3d83243cd5e0bb51340c3e72.jpg\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "（上传了![图片](/home/pika/Project/DesktopDoraemon/work_dir/cc73d8249c25ed333d08d804bc47d853dac68dd01666079268612.jpg)）\n\n这张图片没有背景应该会更好看，帮我处理一下。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"/home/pika/Project/DesktopDoraemon/work_dir/cc73d8249c25ed333d08d804bc47d853dac68dd01666079268612.jpg\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "（上传了![图片](/home/pika/Project/DesktopDoraemon/work_dir/R-C.jpeg)）\n\n想要这张的无背景版本。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"/home/pika/Project/DesktopDoraemon/work_dir/R-C.jpeg\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "能帮我处理一下这张图片的背景吗？https://p1.ssl.qhimg.com/t014d7887ae4bc5e099.jpg"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"https://p1.ssl.qhimg.com/t014d7887ae4bc5e099.jpg\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "请把这张图片的背景去掉吧！链接是：https://p1.ssl.qhmsg.com/t01aea66355c743f418.jpg"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"https://p1.ssl.qhmsg.com/t01aea66355c743f418.jpg\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "麻烦把这张图片 https://so1.360tres.com/t01a71feea2f6e3d441.jpg 的背景处理一下！"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"https://so1.360tres.com/t01a71feea2f6e3d441.jpg\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮忙把这张 https://img2.pconline.com.cn/pconline/0707/08/1053254_070710panda08.jpg 图片的背景去掉"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"https://img2.pconline.com.cn/pconline/0707/08/1053254_070710panda08.jpg\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "https://img.shetu66.com/2023/07/19/1689753097116418.png 背景比较乱，能不能帮我清理一下？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: RemoveImageBackground"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"img_path\": \"https://img.shetu66.com/2023/07/19/1689753097116418.png\"}"
+            }
+        ]
+    } 
+]

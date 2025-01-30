@@ -1,0 +1,322 @@
+[
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "能不能告诉我清单里“安排健身计划”的当前状态？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"查看\", \"item\": \"安排健身计划\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我想查一下清单中“规划旅行路线”的进展情况。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"查看\", \"item\": \"规划旅行路线\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "看看“阅读那本小说”目前的完成情况怎么样了？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"查看\", \"item\": \"阅读那本小说\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "请检查一下清单中“修复车库门”的状态。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"查看\", \"item\": \"修复车库门\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "能否帮我看看待办清单的总体进展？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"查看\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我看看清单里还剩下什么任务。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"查看\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "新增一项任务：完成年度财务报告。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"添加\", \"item\": \"完成年度财务报告\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "请将“购买生日礼物”这项任务加到清单中。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"添加\", \"item\": \"购买生日礼物\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我把“周末打扫院子”这件事列进待办事项。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"添加\", \"item\": \"周末打扫院子\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "在清单中添加“计划下周的旅行”。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+            "content": "Action Input: {\"operation\": \"添加\", \"item\": \"计划下周的旅行\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "把“写一篇日记”加入到待办清单里吧。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"添加\", \"item\": \"写一篇日记\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "将清单中的“整理书架”标记为完成。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"完成\", \"item\": \"整理书架\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我把“提交项目报告”标记成已完成。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"完成\", \"item\": \"提交项目报告\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我已经完成了“给花园浇水”，把这项任务标记一下吧。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+            "content": "Action Input: {\"operation\": \"完成\", \"item\": \"给花园浇水\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "清单里的“完成线上课程”已经做完了，更新成已完成状态吧。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"完成\", \"item\": \"完成线上课程\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "标记一下“联系搬家公司”这件事为完成。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"完成\", \"item\": \"联系搬家公司\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "请将整个清单重置一下。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"重置\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "清单状态乱了，能帮我重置吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"重置\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "重置一下所有待办事项吧。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"重置\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我想从头开始，把清单全部重置一下。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ToDo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"operation\": \"重置\"}"
+            }
+        ]
+    }
+]

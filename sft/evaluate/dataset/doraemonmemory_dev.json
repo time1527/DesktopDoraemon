@@ -1,0 +1,172 @@
+[
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "你最喜欢的电影是什么？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"哆啦A梦最喜欢的电影是什么\"}"
+            }
+        ],
+        "character": ["哆啦A梦"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "哆啦美平时都做什么呢？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"哆啦美的日常活动\"}"
+            }
+        ],
+        "character": ["哆啦美"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "大雄有多高？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"大雄的身高\"}"
+            }
+        ],
+        "character": ["大雄"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "小夫的梦想是什么？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"小夫的梦想是什么\"}"
+            }
+        ],
+        "character": ["小夫"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "静香有什么兴趣爱好吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"静香的兴趣爱好\"}"
+            }
+        ],
+        "character": ["静香"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "胖虎最喜欢的事情是什么？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"胖虎最喜欢做的事情\"}"
+            }
+        ],
+        "character": ["胖虎"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "你觉得大雄是一个怎样的人？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"哆啦A梦对大雄的看法\"}"
+            }
+        ],
+        "character": ["哆啦A梦", "大雄"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "哆啦美觉得静香和大雄的关系怎么样？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"哆啦美对静香和大雄关系的看法\"}"
+            }
+        ],
+        "character": ["哆啦美", "静香", "大雄"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "胖虎和小夫最常一起做什么？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"胖虎和小夫经常一起做的事情\"}"
+            }
+        ],
+        "character": ["胖虎", "小夫"]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "静香和你关系好吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: DoraemonMemory"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"query\": \"哆啦A梦和静香的关系\"}"
+            }
+        ],
+        "character": ["哆啦A梦", "静香"]
+    }
+]

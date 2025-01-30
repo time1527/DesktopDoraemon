@@ -1,0 +1,162 @@
+[
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我想去一个很远的地方，但是路费太贵了，有什么办法吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"任意门\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "有办法让我能飞到空中看风景吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"竹蜻蜓\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "能不能让我把这本书上的字放大一点，我看得清楚些？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"放大灯\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "考试要来了，我总是记不住重点，有什么办法可以让我记住吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"记忆面包\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我的房间太乱了，能让我把一些东西变小好收纳吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"缩小灯\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我很想回到过去看看小时候的自己，可以做到吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"时光机\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我朋友搬到国外了，有什么办法可以瞬间去看他吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"任意门\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "太晚了，公交车停运了，我该怎么回家呢？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"竹蜻蜓\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "这张地图上的字太小了，我看不清楚，有什么能放大的吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"放大灯\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "明天要参加一个比赛，但总觉得记不住规则，有什么能帮我的吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: TreasureBag"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"tool\": \"记忆面包\"}"
+            }
+        ]
+    }
+]

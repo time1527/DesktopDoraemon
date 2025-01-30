@@ -1,0 +1,322 @@
+[
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我想深入了解GitHub上使用Go编程语言且过去一个月趋势热门的仓库。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Go\", \"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我打算依据Ruby语言和本周时间范围查找Github上的热门仓库。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Ruby\", \"date_range\": \"本周\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "找最近「本周」流行的使用「Swift」编程语言的Github仓库。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Swift\", \"date_range\": \"本周\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "查找GitHub上使用Java语言近一个月内的热门仓库。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Java\", \"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "我打算根据PHP编程语言和近一个月日期范围查找GitHub上的热门仓库。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"PHP\", \"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "今天有哪些热门repo"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"date_range\": \"本日\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "能否帮我查找一下GitHub上使用Go编程语言的热门仓库，我想了解这个月内的趋势？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Go\", \"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "可以帮我查找一下GitHub在这个月内热门的仓库吗？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "能否帮我查找一下GitHub上今天的热门仓库？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"date_range\": \"本日\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "查找一下最近一周GitHub上有哪些热门的开源项目。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"date_range\": \"本周\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "有哪些使用Python语言且过去一个月非常流行的GitHub仓库？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Python\", \"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "能否找到最近一周内基于C语言的热门仓库？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"C\", \"date_range\": \"本周\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "这个月里有哪些使用TypeScript语言的热门仓库？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"TypeScript\", \"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我找一找过去一个月最热门的仓库吧！"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "有哪些在今天非常流行的Rust语言仓库？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Rust\", \"date_range\": \"本日\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "使用Kotlin语言的本周热门GitHub项目有哪些？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Kotlin\", \"date_range\": \"本周\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我找找过去一个月内非常热门的JavaScript开源项目吧。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"JavaScript\", \"date_range\": \"本月\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我看看今天有哪些用C++语言开发的热门GitHub仓库？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"C++\", \"date_range\": \"本日\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "今天使用Java开发的热门开源项目有哪些？"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Java\", \"date_range\": \"本日\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "请查找今天基于Ruby语言的热门GitHub仓库！"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: GithubTrending"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"language\": \"Ruby\", \"date_range\": \"本日\"}"
+            }
+        ]
+    }        
+]

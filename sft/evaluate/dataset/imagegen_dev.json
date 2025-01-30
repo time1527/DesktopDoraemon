@@ -1,0 +1,482 @@
+[
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张梅兰竹菊图，分辨率是1000x1000"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"梅兰竹菊\", \"width\": 1000, \"height\": 1000}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张海滩风景图，宽度1920，高度1080"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"海滩风景，晴天，蓝色海洋和金色沙滩，远处有几艘小船\", \"width\": 1920, \"height\": 1080}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一个北欧风的客厅，分辨率是1920x1080"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"北欧风客厅，简约家具，灰色沙发和木质茶几，白色墙面\", \"width\": 1920, \"height\": 1080}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "绘制一个科幻城市夜景，尺寸是1080x1350"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"未来科幻城市夜景，霓虹灯和飞行汽车\", \"width\": 1080, \"height\": 1350}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一个冬季森林场景，分辨率是1000x1000"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"冬季森林场景，覆盖雪的树木和小路\", \"width\": 1000, \"height\": 1000}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张高山瀑布图，分辨率1280x720"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"高山瀑布，青山绿水，白色瀑布奔流而下\", \"width\": 1280, \"height\": 720}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一张热带雨林的风景图，尺寸1500x1500"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"热带雨林，茂密树木和阳光透过叶片\", \"width\": 1500, \"height\": 1500}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张秋天的公园小路，分辨率是1600x900"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"秋天公园小路，铺满黄色和红色落叶\", \"width\": 1600, \"height\": 900}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "绘制一个中世纪城堡场景，分辨率为1920x1200"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"中世纪城堡，矗立在山顶，周围有护城河\", \"width\": 1920, \"height\": 1200}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张春天的樱花林"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"春天的樱花林，阳光洒在粉色花瓣上，蓝天背景\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张星空下的古代小镇"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"星空下的古代小镇，灯笼点缀街道，屋顶铺满星光\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一个梦幻般的水底世界"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"梦幻水底世界，各种色彩斑斓的鱼类和珊瑚\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "绘制一个宇宙中的巨大空间站"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"宇宙中的巨大空间站，金属质感，周围漂浮着星球和陨石\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张东方古典花园的画"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"东方古典花园，小桥流水，绿树掩映，亭台楼阁\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一张繁星点缀的银河系图"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"繁星点缀的银河系，色彩渐变的星云，深邃的宇宙背景\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我绘制一个童话般的城堡"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"童话般的城堡，周围环绕彩虹和云朵\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一个热气球飞过山谷的场景"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"热气球飞过山谷，青山绿水，阳光洒满山间\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张未来科技风的实验室"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"未来科技风实验室，蓝光屏幕和悬浮设备，冷色调\"}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张展现日落时分的乡村田野，天空被橙色和紫色渲染，远处有几座农舍，宽度为1500。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"日落乡村田野，橙紫色天空，远处农舍和田间小路\", \"width\": 1500}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一张宽度1000的魔法森林图，森林中有发光的植物和漂浮的光点，营造神秘氛围"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"魔法森林，发光植物和漂浮光点，神秘迷人\", \"width\": 1000}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一个中世纪的港口城镇，宽度需要1200，港口停满帆船，城镇用石头建筑风格"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"中世纪港口城镇，帆船与石头建筑风格，历史感十足\", \"width\": 1200}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一张宽500的大海边上的灯塔图，灯塔在夕阳的映照下，周围波浪拍打礁石"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"海边灯塔，夕阳余晖，波浪拍打礁石\", \"width\": 500}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "绘制一个宽为2000的极地冰川景象，冰川下方是一片深蓝色的海洋，天空透着冷冽的阳光"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"极地冰川，深蓝海洋与冷冽阳光，壮丽景观\", \"width\": 2000}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "请画一张展示繁忙都市夜景的图，宽需为1920，街道充满霓虹灯，车辆川流不息"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"繁忙都市夜景，霓虹灯闪烁，川流不息的街道\", \"width\": 1920}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一张秋天森林的场景，金黄的树叶铺满地面，阳光穿过树林洒下光影，高度为1500。"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"秋天森林，金黄树叶铺满地面，阳光穿过树林\", \"height\": 1500}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一张高度为1200的沙漠绿洲图，绿洲中有清澈的水池和几颗椰子树，背景是广袤的沙丘"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"沙漠绿洲，清澈水池和椰子树，背景沙丘\", \"height\": 1200}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我绘制一个高度800的热带岛屿场景，岛屿上有茂密的植被和白色沙滩，周围是碧蓝的海水"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"热带岛屿，茂密植被，白色沙滩和碧蓝海水\", \"height\": 800}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "画一张展现北极光的夜空，极光在黑暗的天空中舞动，地面覆盖着冰雪，高度需要1000"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"北极光夜空，极光在黑暗天空中舞动，冰雪覆盖地面\", \"height\": 1000}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "请画一个高度为1600的未来城市图，摩天大楼之间悬浮着磁悬浮列车，天空充满科技感的光束"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"未来城市，摩天大楼与悬浮列车，天空科技光束\", \"height\": 1600}"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "role": "user",
+                "content": "帮我画一个高度为2000的日出高山图，高山上有积雪覆盖，金色阳光洒在山顶，天空透着朝霞"
+            },
+            {
+                "role": "assistant",
+                "content": "Action: ImageGen"
+            },
+            {
+                "role": "assistant",
+                "content": "Action Input: {\"prompt\": \"日出高山，积雪覆盖山顶，金色阳光与朝霞\", \"height\": 2000}"
+            }
+        ]
+    }
+]
