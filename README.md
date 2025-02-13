@@ -25,7 +25,7 @@
 
 2025-01-30：tts，上传模型到modelscope
 
-2025-01-21：lora-rank=4的微调
+2025-01-21：lora rank=4的微调
 
 2025-01-19：lora rank=8的微调
 
@@ -87,9 +87,9 @@ TTS：如果agent使用工具TreasureBag，会直接播放哆啦A梦取出道具
 
 可以设置TTS为False，直接使用api，这样不需要下载模型。
 
-LLM微调：https://www.modelscope.cn/models/qwerty317/doraemon-checkpoint-1000
+LLM：[微调模型](https://www.modelscope.cn/models/qwerty317/doraemon-checkpoint-1000)
 
-GPT-SoVITS微调：https://www.modelscope.cn/models/qwerty317/doraemon-gsv
+GPT-SoVITS：[微调模型](https://www.modelscope.cn/models/qwerty317/doraemon-gsv)
 
 ## run
 
@@ -204,15 +204,20 @@ lora_target: all
 
 **lora rank = 4结果**：
 
-<div style="display: flex;">
-  <img src="./sft/evaluate/qwen2.5-3b-instruct/qwen2.5-3b-instruct_res.png" alt="没有微调" style="width: 33%;">
-  <img src="./sft/evaluate/r=4/checkpoint-1000/checkpoint-1000_res.png" alt="checkpoint-1000" style="width: 33%;">
-  <img src="./sft/evaluate/r=4/checkpoint-1250/checkpoint-1250_res.png" alt="checkpoint-1250" style="width: 33%;">
-</div>
+<table style="width: 100%; text-align: center;">
+  <tr>
+    <td><img src="./sft/evaluate/qwen2.5-3b-instruct/qwen2.5-3b-instruct_res.png" alt="没有微调的Qwen2.5-3B-Instruct" style="width: 100%;"></td>
+    <td><img src="./sft/evaluate/qwen-turbo/qwen-turbo_res.png" alt="Qwen-Turbo" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <td><img src="./sft/evaluate/r=4/checkpoint-1000/checkpoint-1000_res.png" alt="checkpoint-1000" style="width: 100%;"></td>
+    <td><img src="./sft/evaluate/r=4/checkpoint-1250/checkpoint-1250_res.png" alt="checkpoint-1250" style="width: 100%;"></td>
+  </tr>
+</table>
 
-<center>左：没有微调的Qwen/Qwen2.5-3B-Instruct；中：checkpoint-1000；右：checkpoint-1250。使用lora rank = 4微调。</center>
+<center>左上：没有微调的Qwen/Qwen2.5-3B-Instruct；右上：Qwen-Turbo；左下：checkpoint-1000；右下：checkpoint-1250。使用LoRA Rank = 4微调。</center>
 
-未微调模型（左图）：
+未微调模型（左上）：
 
 - ImageGen 在 action input和 obs in fa 上错误率较高：ImageGen 的 width 和 height 参数可选，LLM会捏造这两个参数；相比于Observation返回的图片路径，Final Answer里的图片路径会少一些数字/字母。
 
@@ -339,7 +344,7 @@ lora_target: all
   ```
 
 ​	</details>
-checkpoint-1000（中图）：
+checkpoint-1000（左下）：
 
 - GithubTrending 有错误，比未微调时更高，模型出现过拟合。
 
@@ -386,27 +391,29 @@ checkpoint-1000（中图）：
 
 - 其他任务（ImageGen、RemoveImageBackground 等）几乎没有错误。
 
-Checkpoint-1250（右图）：
+Checkpoint-1250（右下）：
 
 - GithubTrending 错误率进一步上升。
 - TreasureBag 和 DoraemonMemory 仍然有小幅错误（10%），但相比未微调版本已经大幅减少。
 
 **lora rank=8结果**：
 
+<table style="width: 100%; text-align: center;">
+  <tr>
+    <td><img src="./sft/evaluate/qwen2.5-3b-instruct/qwen2.5-3b-instruct_res.png" alt="没有微调的Qwen2.5-3B-Instruct" style="width: 100%;"></td>
+    <td><img src="./sft/evaluate/qwen-turbo/qwen-turbo_res.png" alt="Qwen-Turbo" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <td><img src="./sft/evaluate/r=8/checkpoint-1500/checkpoint-1500_res.png" alt="checkpoint-1500" style="width: 100%;"></td>
+    <td><img src="./sft/evaluate/r=8/checkpoint-2000/checkpoint-2000_res.png" alt="checkpoint-2000" style="width: 100%;"></td>
+  </tr>
+</table>
 
-
-<div style="display: flex;">
-  <img src="./sft/evaluate/qwen2.5-3b-instruct/qwen2.5-3b-instruct_res.png" alt="没有微调" style="width: 33%;">
-  <img src="./sft/evaluate/r=8/checkpoint-1500/checkpoint-1500_res.png" alt="checkpoint-1500" style="width: 33%;">
-  <img src="./sft/evaluate/r=8/checkpoint-2000/checkpoint-2000_res.png" alt="checkpoint-2000" style="width: 33%;">
-</div>
-
-<center>左：没有微调的Qwen/Qwen2.5-3B-Instruct；中：checkpoint-1500；右：checkpoint-2000。使用lora rank = 8微调。</center>
+<center>左上：没有微调的Qwen/Qwen2.5-3B-Instruct；右上：Qwen-Turbo；左下：checkpoint-1500；右下：checkpoint-2000。使用LoRA Rank = 8微调。</center>
 
 错例的情况与lora rank=4相似，也会出现一些“令人惊喜”的好例。
 
 <details>
-
 <summary>好例</summary>
 
 ```json
