@@ -187,7 +187,7 @@ python main.py
 
 细节指路：[agent微调](./sft/README.md)
 
-**数据**：对每个工具（GithubTrending除外）构造约 #槽位x500 的训练集，构造 #槽位x10 的测试集，另外构造20个GithubTrending测试数据作为hold-out测试。训练集约4000条，测试集100条数据。在训练数据中加强了哆啦A梦的语气和自我认知。
+**数据**：对每个工具（GithubTrending除外）构造约 #槽位x500 的训练集，构造 #槽位x10 的测试集，另外构造20个GithubTrending测试数据作为OOD测试。训练集约4000条，测试集100条数据。在训练数据中加强了哆啦A梦的语气和自我认知。
 
 **训练**：使用[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)，LoRA微调，关键超参数如下
 
@@ -200,7 +200,9 @@ lora_target: all
 
 角度：工具识别（action）；工具参数（action input）；json格式（json format）；在工具返回路径的前提下，最终答案是否包含这个路径，主要针对ImageGen和RemoveImageGround（obs in fa）
 
-一句话总结效果：过拟合，但能用，比未微调好些。
+<img src="assets/compare_res.png" style="zoom:50%;" />
+
+结果总结（结合以下分析）：微调模型在这4个方面都明显优于未微调模型，其中LoRA rank=4的微调效果更好。在OOD工具上错误率比未微调模型有增加，模型轻微过拟合，但模型同时出现工具纠正能力（微调数据仅涉及单个工具）。
 
 **lora rank = 4结果**：
 
