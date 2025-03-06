@@ -83,10 +83,13 @@ def calculate_res(true_dev, pred_dev):
                 call_res["action"] = msg["content"][len(tool_token) :].strip()
             if all([k in call_res.keys() for k in ["fa", "ob", "action", "args"]]):
                 break
-        if not all([k in call_res.keys() for k in ["fa", "ob", "action", "args"]]):
-            for e in range(res.shape[1]):
-                res[tool_map[true_tool]][e] += 1
-            error_list[i] = ["all"]
+        # if not all([k in call_res.keys() for k in ["fa", "ob", "action", "args"]]):
+        # for e in range(res.shape[1]):
+        #     res[tool_map[true_tool]][e] += 1
+        # error_list[i] = ["all"]
+        # continue
+        if "action" not in call_res.keys():
+            res[tool_map[true_tool]][error_map["action"]] += 1
             continue
 
         # action
@@ -188,7 +191,8 @@ def calculate_res(true_dev, pred_dev):
     ]
 
     save_name = ".".join(os.path.basename(pred_dev).split(".")[:-1])
-    save_dir = save_name[: -len("_res")]
+    save_dir = os.path.dirname(pred_dev)
+
     np.save(f"{save_dir}/{save_name}.npy", res)
     with open(f"{save_dir}/{save_name}_false.json", "w", encoding="utf-8") as f:
         json.dump(false_conv, f, ensure_ascii=False, indent=4)
@@ -338,8 +342,24 @@ if __name__ == "__main__":
     #     llm=DEFAULT_DASHSCOPE_CFG,
     #     eval_name=DEFAULT_DASHSCOPE_CFG.get("model").split("/")[-1].lower(),
     # )
-    eval_agents(
-        dev_path="dataset/dev.json",
-        llm=DEFAULT_FT_CFG,
-        eval_name=DEFAULT_FT_CFG.get("model").split("/")[-1].lower(),
-    )
+    # eval_agents(
+    #     dev_path="dataset/dev.json",
+    #     llm=DEFAULT_FT_CFG,
+    #     eval_name=DEFAULT_FT_CFG.get("model").split("/")[-1].lower(),
+    # )
+
+    import os
+
+    # 定义要遍历的文件夹路径
+    folder_path = "."
+
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            if file.endswith("res.json"):
+                file_path = os.path.join(root, file)
+                absolute_path = os.path.abspath(file_path)
+                print(absolute_path)
+                calculate_res(
+                    true_dev="./dataset/dev.json",
+                    pred_dev=absolute_path,
+                )

@@ -64,22 +64,6 @@
         ]
     },
     {
-        "all": [
-            {
-                "role": "user",
-                "content": "你最喜欢的电影是什么？"
-            },
-            {
-                "role": "assistant",
-                "content": "Thought: 我会回答。"
-            },
-            {
-                "role": "assistant",
-                "content": "Final Answer: 作为一部动漫角色，我并没有具体的电影喜好。但是我可以帮你查找一些受欢迎的电影或者推荐一些好看的动漫电影哦！"
-            }
-        ]
-    },
-    {
         "obs in fa": [
             {
                 "role": "user",
