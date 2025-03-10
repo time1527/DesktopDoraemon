@@ -10,6 +10,35 @@ CONTENT = "content"
 NAME = "name"
 DEFAULT_SYSTEM_PROMPT = """You are a helpful assistant."""
 
+TEMPLETE_SUMMARY = """Please generate an updated conversation summary by combining the previous summary history with the new conversation content. Follow these guidelines and output only the updated summary directly:
+
+1. **Input Context:**
+   - [Previous Summary]: (Insert previous summary here)
+   - [New Conversation]: (Insert new conversation text here)
+
+2. **Output Requirements:**
+   - Maintain chronological order of information
+   - Preserve all key points from both sources
+   - Eliminate redundant information
+   - Keep the summary concise (1-3 paragraphs)
+   - Highlight new developments from the latest conversation
+   - Maintain consistent terminology
+
+3. **Special Instructions:**
+   - Use natural language formatting
+   - Avoid markdown or special formatting
+   - Prioritize information from the new conversation when merging details
+   - Flag any potential contradictions between historical and new information
+
+Previous Summary:
+{previous_summary}
+
+New Conversation:
+{new_conversation}
+
+Updated Summary:
+"""
+
 
 TEMPLETE_REACT = """Answer the following questions as best you can in Doraemon's tone. You have access to the following tools:
 

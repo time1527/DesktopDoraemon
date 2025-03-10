@@ -42,31 +42,36 @@ class ReActClient(BaseClient):
 
         # 没有调用tool
         if not ob:
-            output.content = [ContentItem(text=fa)]
+            if fa:
+                output.content = [ContentItem(text=fa)]
             return output, ""
 
         # 提取action
-        _, action, _, _ = self.agent._detect_tool(output.content)
-        # 从observation提取image和file路径
-        paths = json_loads(ob)  # str -> dict or str(error)
-        if (
-            not paths
-            or isinstance(paths, str)
-            or all(x == "text" for x in paths.keys())
-        ):
-            output.content = [ContentItem(text=fa)]
-            return output, action
+        try:
+            _, action, _, _ = self.agent._detect_tool(output.content)
+            # 从observation提取image和file路径
+            paths = json_loads(ob)  # str -> dict or str(error)
+            if (
+                not paths
+                or isinstance(paths, str)
+                or all(x == "text" for x in paths.keys())
+            ):
+                output.content = [ContentItem(text=fa)]
+                return output, action
 
-        # 将image和file路径添加到content中
-        content = [ContentItem(text=fa)]
-        for type in paths.keys():
-            type = type.strip()
-            if type == "image":
-                content.append(ContentItem(image=paths[type]))
-            elif type == "file":
-                content.append(ContentItem(file=paths[type]))
-        output.content = content
-        return output, action
+            # 将image和file路径添加到content中
+            content = [ContentItem(text=fa)]
+            for type in paths.keys():
+                type = type.strip()
+                if type == "image":
+                    content.append(ContentItem(image=paths[type]))
+                elif type == "file":
+                    content.append(ContentItem(file=paths[type]))
+            output.content = content
+            return output, action
+        except Exception as e:
+            logger.error(f"extract error: {e}")
+            return output, ""
 
 
 if __name__ == "__main__":
