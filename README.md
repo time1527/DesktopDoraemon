@@ -114,6 +114,7 @@ LLM：[微调模型](https://www.modelscope.cn/models/qwerty317/doraemon-checkpo
 
   ```shell
   # 下载模型放个地方：以下是我的本地路径
+  # 需要根据vllm repo另开环境
   vllm serve /home/pika/Model/desktop-doraemon/r=4/merged/checkpoint-1000
   ```
 
@@ -128,6 +129,7 @@ GPT-SoVITS：[微调模型](https://www.modelscope.cn/models/qwerty317/doraemon-
 
   ```shell
   # 按照./tts/README.md放好模型，设置好my_infer.yaml
+  # 需要根据GPT-SoVITS repo另开环境
   # tts serve：这里是我的本地路径
   cd ~/Repo/GPT-SoVITS/
   python api_v2.py -a 127.0.0.1 -p 9880 -c  GPT_SoVITS/configs/my_infer.yaml
