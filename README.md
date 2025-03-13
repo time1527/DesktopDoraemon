@@ -81,7 +81,7 @@ Planning：
 
 Clients：连接前端和agent。每个Client类使用的是对应名字的agent。无法保证LLM每次输出都会严格采取ReAct格式，因此在没有Final Answer的情况下，会直接展示LLM所有生成的轨迹。
 
-TTS：如果agent使用工具TreasureBag，会直接播放哆啦A梦取出道具音效。其他情况，在没有使用[GithubTrending,RemoveImageBackground,ImageGen]工具时，会TTS。
+TTS：如果agent使用工具TreasureBag，会直接播放哆啦A梦取出道具音效。其他情况，在没有使用[GithubTrending,RemoveImageBackground,ImageGen]工具时，会TTS。[TTS部署](./tts/README.md)
 
 ## model ckpt
 
@@ -89,7 +89,49 @@ TTS：如果agent使用工具TreasureBag，会直接播放哆啦A梦取出道具
 
 LLM：[微调模型](https://www.modelscope.cn/models/qwerty317/doraemon-checkpoint-1000)
 
+* 使用示例：
+
+  ```python
+  # settings.py
+  # ....
+  DEFAULT_FT_CFG: dict = {  # vllm config
+      "model": "/home/pika/Model/desktop-doraemon/r=4/merged/checkpoint-1000",
+      "model_server": "http://localhost:8000/v1",
+      "api_key": "EMPTY",
+      "generate_cfg": {
+          "top_p": 0.8,
+          "max_input_tokens": DEFAULT_MAX_INPUT_TOKENS,
+          "fncall_prompt_type": "qwen",
+          "repetition_penalty": 1.05,
+      },
+  }
+  # ....
+  DEFAULT_CLIENT_TYPE: str = "react"  # chat/react/doraemon
+  # ....
+  DEFAULT_REACT_LLM_CFG: dict = DEFAULT_FT_CFG  # llm cfg used in react client
+  # ....
+  ```
+
+  ```shell
+  # 下载模型放个地方：以下是我的本地路径
+  vllm serve /home/pika/Model/desktop-doraemon/r=4/merged/checkpoint-1000
+  ```
+
 GPT-SoVITS：[微调模型](https://www.modelscope.cn/models/qwerty317/doraemon-gsv)
+
+* 使用示例：
+
+  ```python
+  # settings.py
+  TTS: bool = True
+  ```
+
+  ```shell
+  # 按照./tts/README.md放好模型，设置好my_infer.yaml
+  # tts serve：这里是我的本地路径
+  cd ~/Repo/GPT-SoVITS/
+  python api_v2.py -a 127.0.0.1 -p 9880 -c  GPT_SoVITS/configs/my_infer.yaml
+  ```
 
 ## run
 
