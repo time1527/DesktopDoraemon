@@ -1,5 +1,10 @@
 克隆GPT-SoVITS项目，下载基础模型和训练好的模型并放入指定文件夹下
+
+切到commit id b7a904a67153170d334fdc0d7fbae220ee21f0e9
+
 新建my_infer.yaml
+
+
 my_infer.yaml：要修改的是t2s_weights_path（放GPT权重）和vits_weights_path（放SoVITS权重）
 
 ```yaml
